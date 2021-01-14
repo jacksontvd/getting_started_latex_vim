@@ -13,7 +13,7 @@ I figured there's no reason not to share it, in case someone might find it usefu
 This is by no means exhaustive, and is meant as a jumping-off-point. The actual
 documentation of the various software/packages should be the reader's next stop.
 The \texttt{.tex} file for this document is available at 
-\href{https://github.com/jacksontvd/tex/tree/master/getting_started}{this repository}.
+\href{https://github.com/jacksontvd/getting_started_latex_vim}{this repository}.
 
 If you just want my style files, these can found at 
 \href{https://github.com/jacksontvd/tex}{this repository}, and if you just want my vimrc,
@@ -33,8 +33,7 @@ wants the paper to look one way, and later decide to submit the paper to another
 which wants it to look another way, the structure of the actual pdf document can be
 changed immediately. This is just one example of the many things which make \LaTeX\ so
 great. For more information and a much better technical introduction to how this thing
-actually works, I suggest the canonical reference, \textit{The Texbook}, available
-\href{http://www.ctex.org/documents/shredder/src/texbook.pdf}{here}.
+actually works, I suggest the \textit{The Texbook}, by D.E. Knuth. 
 
 Vim is a text editor which uses keystrokes (rather than menus and the cursor) to navigate and edit text documents. 
 In other words you use combinations of keys on your keyboard to toggle through lines,
@@ -54,7 +53,6 @@ Download from, and follow instructions from \href{http://www.tug.org/mactex/}{th
 webpage}.
 
 \subsection{Macros}
-
 \LaTeX\ macros should be thought of as custom `settings'. A basic example of such a thing
 is the following:
 \begin{verbatim}
@@ -75,8 +73,8 @@ mine.
 \subsection{Installation}
 
 Vim should come with your machine, but to make sure you have the latest version, or to
-install it for the first time, it is easiest to use homebrew. I.e. enter the following to
-the command line:
+install it for the first time, it is easiest to use homebrew. I.e. 
+open your terminal and run the following command:
 \begin{verbatim}
 brew install vim
 \end{verbatim}
@@ -90,7 +88,8 @@ this, mine can be found at \href{https://github.com/jacksontvd/vim}{this reposit
 would however suggest building up your own gradually, adding things as you need them.
 Google is helpful for this. 
 By default your vimrc just lives in \texttt{/User/} but I prefer to have it in 
-$\sim$\texttt{/.vim} so it is easier to push to by backup repository.
+$\sim$\texttt{/.vim} so it is easier to push to my backup
+\href{https://github.com/jacksontvd/vim}{repository}.
 
 \subsection{Packages for Vim}
 
@@ -104,7 +103,7 @@ type so one doesn't have to keep track of which symbols comment lines in which d
 type, and instead one can have a designated keystroke combination which comments lines in
 any language. 
 \item Spell: Offers spell checking, and spell correction.
-\item Ulti-Snips: Snippets are far too complicated to get into in depth, but they
+\item Ulti-Snips: Snippets are far too complicated to get into in depth, but th\ y
 basically allow you to type an abbreviation for something, hit a special key (by default
 \texttt{<tab>}) and this abbreviation will expand to the larger predesignated thing. As
 one can imagine, this is extremely useful for typing things quickly. Especially in \LaTeX.
@@ -112,10 +111,10 @@ To write and customize snippets:
 \begin{verbatim}
 :UltiSnipsEdit texmath
 \end{verbatim}
-\item Vimtex: This is, in my opinion, the best package supporting writing \LaTeX with Vim.
+\item Vimtex: This is, in my opinion, the best package supporting writing \LaTeX\ with Vim.
 The alternative, Vim-LaTeX, is much heavier and isn't as flexible. In combination with
 Ulti-Snips, vimtex can do much more. 
-\item Vim-tex-fold: Supports folding of a \LaTeX document in Vim. This means that, for
+\item Vim-tex-fold: Supports folding of a \LaTeX\ document in Vim. This means that, for
 example, sections will be collapsed to a single line on ones display when they are not
 being edited. 
 \end{enumerate}
@@ -128,28 +127,41 @@ I will give the bare minimum.
 
 \subsection{Opening a document}
 
-In the command line navigate to the directory containing the document you want to edit.
-Call it example.tex. Enter the following into the command line.
+Open your terminal and navigate to the directory containing the document you want to edit.
+Call it example.tex. 
+Run the following command:
 \begin{center}
 \begin{verbatim}
-$ vim example.tex
+vim example.tex
 \end{verbatim}
 \end{center}
-This will open the document in the terminal window. Vim can be in different 
+This will open the document in the terminal window. 
+
+\subsection{Modes}
+
+\subsubsection{Normal mode}
+
+Vim can be in different 
 ``modes''. The default being called ``normal mode''. In this mode you can navigate the
 document, delete things (characters, words, lines, etcetera), copy (called ``yank'' for vim),
-paste, etcetera. To move one symbol to the right, use the `l' key; to move one symbol to
-the left, use the `h' key; to move one line down, use the `j' key; and to move one line
-up, use the `k' key. To actually type text, you need to enter the 
+paste, etcetera. To move the cursor one symbol to the right, use the `l' key; to move the
+cursor one symbol to the left, use the `h' key; to move one line down, use the `j' key;
+and to move one line up, use the `k' key. 
+
+\subsubsection{Insert mode}
+
+To actually type text, you need to enter the 
 ``insert mode'' by pressing the `i' key. Once in this mode the h,j,k, and l keys no longer
 navigate since they now need to perform their original function of entering the letters
-h,j,k, and l. To get back to normal mode, press the escape key. 
+h,j,k, and l. 
+
+To get back to normal mode, press the escape key. 
 
 \subsection{Remapping your caps lock key}
 
 When using vim one presses the escape key constantly to return to normal mode. The result
 is the famous ``vim pinkey''. To avoid stretching for the escape button so much, some
-people (including me) remap the caps lock key to be act as a second escape key instead. 
+people (including me) remap the caps lock key to be a second escape key instead. 
 
 To do this on mac:
 \begin{enumerate}
@@ -163,7 +175,7 @@ To do this on mac:
 \section{Displaying the PDF}
 
 When editing notes quickly, it is useful to let the compiler run every time the document
-is saved. This is the default mode in vim-tex. This means the PDF viewer one is using must
+is saved. This is the default behavior of vim-tex. This means the PDF viewer one is using must
 change as the file changes. Most PDF viewers do not support this. 
 In my opinion there are only two effective options for PDF viewers on a mac that support
 live updating: Skim and Zathura.
@@ -173,7 +185,7 @@ live updating: Skim and Zathura.
 To install Skim enter the following into the command line:
 \begin{center}
 \begin{verbatim}
-$ brew cask install skim
+brew cask install skim
 \end{verbatim}
 \end{center}
 
@@ -183,13 +195,13 @@ To tap, install, and link Zathura/the required plugins
 enter the following into the command line:
 \begin{center}
 \begin{verbatim}
-$ brew tap zegervdv/zathura
-$ brew install zathura --with-synctex
-$ brew install zathura-pdf-poppler
-$ brew install xdotool
-$ mkdir -p $(brew --prefix zathura)/lib/zathura
-$ ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib 
-        $(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib
+brew tap zegervdv/zathura
+brew install zathura --with-synctex
+brew install zathura-pdf-poppler
+brew install xdotool
+mkdir -p $(brew --prefix zathura)/lib/zathura
+ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib 
+      $(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib
 \end{verbatim}
 \end{center}
 
@@ -198,8 +210,8 @@ $ ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib
 If using vim-tex, once you have determined which viewer you would like to use, add one of the following
 lines to your \texttt{vimrc}:
 \begin{verbatim}
-let g:vimtex_view_method='zathura'
-let g:vimtex_view_method='skim'
+let g:vimtex_view_method=`zathura'
+let g:vimtex_view_method=`skim'
 \end{verbatim}
 and the pdf file will automatically open in your chosen viewer when it is compiled.
 Use \textbackslash\texttt{ll} to compile a document in vim-tex.
@@ -213,15 +225,20 @@ The preamble and document environment (specifically for taking notes) is trigger
 \begin{verbatim}
 notes<tab>
 \end{verbatim}
-with Ulti-Snips placeholders (toggled through with \texttt{<c-j>}) 
+with Ulti-Snips placeholders (toggled through with \texttt{<ctrl>j>}) 
 at all of the places where things should be added. 
+
+To begin compiling:
+\begin{verbatim}
+\ll
+\end{verbatim}
 
 To suggest a completion of a word:
 \begin{verbatim}
 <ctrl>n
 \end{verbatim}
 
-To correct spelling:
+To guess the correct spelling of the last misspelled word:
 \begin{verbatim}
 <ctrl>p
 \end{verbatim}
@@ -259,6 +276,11 @@ Build an environment out of whatever is in the current line:
 Change tabs
 \begin{verbatim}
 gt
+\end{verbatim}
+
+To write and customize snippets:
+\begin{verbatim}
+:UltiSnipsEdit texmath
 \end{verbatim}
 
 \end{document}
